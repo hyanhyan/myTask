@@ -26,20 +26,20 @@
             <ul class="list-unstyled components mb-5">
                 <li class="active">
 
-                    <a href="addinfo.php"  id="categories">Categories</a>
+                    <a href="../categories/addinfo.php"  id="categories">Categories</a>
 
 
 
                 <li>
 
-                    <a href="addProductinfo.php"  class="dropdown-toggle">Product</a>
+                    <a href="../products/addProductinfo.php"  class="dropdown-toggle">Product</a>
 
 
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                     </ul>
                 </li>
                 <li>
-                    <a href="addmodelinfo.php" id="model">Model</a>
+                    <a href="../model/addmodelinfo.php" id="model">Model</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>

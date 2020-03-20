@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include "backend/connect.php";
+include "../backend/connect.php";
 
 $product = $conn->prepare("SELECT * FROM `models`");
 $product->execute();
@@ -23,9 +23,9 @@ $arrCatgory = $category->fetchAll(PDO::FETCH_ASSOC);
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="sidebar-01/css/style.css">
-        <script src="sidebar-01/js/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../sidebar-01/css/style.css">
+
     </head>
 <body>
 <div class="container">
@@ -79,7 +79,7 @@ if (isset($_POST['submit'])){
                                                       VALUES ('$name', '$new','$option','$mod','$price','$img','$desc', now(), now())");
         $insert_products->execute();
 
-        header("Location: frontend/addProductinfo.php");
+        header("Location: addProductinfo.php");
 
 
     }
@@ -87,10 +87,8 @@ if (isset($_POST['submit'])){
 }
 
 ?>
-<script src="sidebar-01/js/popper.js"></script>
-<script src="sidebar-01/js/bootstrap.min.js"></script>
-<script src="sidebar-01/js/main.js"></script>
-<script src="sidebar-01/js/bootstrap.min.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
 
 </body>
 </html>

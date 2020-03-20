@@ -1,6 +1,6 @@
 
 <?php
-include "backend/connect.php";
+include "../backend/connect.php";
 
 $id = $_POST['id'];
 

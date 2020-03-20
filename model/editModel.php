@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "backend/connect.php";
+include "../backend/connect.php";
 $id=$_GET["id"];
 $_SESSION["id"]=$id;
 $cat=$_GET['category_id'];
@@ -29,9 +29,9 @@ $arrCategory = $category->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="sidebar-01/css/style.css">
-    <script src="sidebar-01/js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../sidebar-01/css/style.css">
+
 </head>
 <body>
 
@@ -58,10 +58,9 @@ $arrCategory = $category->fetchAll(PDO::FETCH_ASSOC);
     </form>
 </div>
 
-<script src="sidebar-01/js/popper.js"></script>
-<script src="sidebar-01/js/bootstrap.min.js"></script>
-<script src="sidebar-01/js/main.js"></script>
-<script src="sidebar-01/js/bootstrap.min.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/index.js"></script>
+
 
 </body>
 </html>

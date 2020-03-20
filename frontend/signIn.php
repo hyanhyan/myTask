@@ -2,7 +2,7 @@
 
 session_start();
 include "../backend/connect.php";
-require_once "../front.php";
+require_once "front.php";
 
 //$name = $_COOKIE['name'];
 //$key = $_COOKIE['cookie_key'];
@@ -22,7 +22,8 @@ if ($_SESSION['authorized'] && $_SESSION['authorized'] == true) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../sidebar-01/css/style.css">
-        <script src="../index.js"></script>
+        <script src="../js/index.js"></script>
+        <script src="../js/jquery-3.4.1.min.js"></script>
     </head>
     <body>
 

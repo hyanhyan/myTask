@@ -1,6 +1,6 @@
 <?php
 include "../backend/connect.php";
-require_once "../front.php";
+require_once "../frontend/front.php";
 $products = $conn->query("SELECT `products`.*, `categories`.`name`,`models`.`title`  
                                         FROM `products`
                                             LEFT JOIN `categories` ON products.category_id=categories.id
@@ -22,6 +22,7 @@ $arr = $products->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../sidebar-01/css/style.css">
 
+
     <style>
 
         .btn {
@@ -40,6 +41,11 @@ $arr = $products->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+<form">
+<label for="search">Search product name</label>
+<br>
+<input type="search" id="prSearch" name="search">
+</form>
 <div id="content" class="p-4 p-md-5">
 
     <div class="all">
@@ -49,7 +55,7 @@ $arr = $products->fetchAll(PDO::FETCH_ASSOC);
                     <div class="row">
                         <div class="col-sm-8"><h2>Product <b>Details</b></h2></div>
                         <div class="col-sm-4">
-                            <a href="../newProduct.php" class="add-new"><i class="fa fa-plus"></i> Add New
+                            <a href="newProduct.php" class="add-new"><i class="fa fa-plus"></i> Add New
                                 product<a>
                         </div>
                     </div>
@@ -138,7 +144,7 @@ $arr = $products->fetchAll(PDO::FETCH_ASSOC);
 
 
                         <td style="display: flex">
-                            <a href="../editProduct.php?id=<?= $v['id'] ?>&category_id=<?=$v['category_id']?>&model_id=<?=$v['model_id']?>" class="edit" title="Edit"
+                            <a href="editProduct.php?id=<?= $v['id'] ?>&category_id=<?=$v['category_id']?>&model_id=<?=$v['model_id']?>" class="edit" title="Edit"
                                data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a style="color:#E34724" class="clear" title="Delete" data-toggle="tooltip"><i
                                         class="material-icons">&#xE872;</i></a>
@@ -155,7 +161,7 @@ $arr = $products->fetchAll(PDO::FETCH_ASSOC);
 
                 echo "
                 <button class='btn'><a href='addProductinfo.php?pages=1'>First</a></button>
-                <button class='btn'><a href='addProductinfo.php?pages=".($currentPage-1)."'>Previous</a></button>";
+                <button class='btn'><a href='addProductinfo.php?pages=" .($currentPage-1)."'>Previous</a></button>";
                 for($currentPage=1;$currentPage <= $count;$currentPage++) {
                     echo "
                        
@@ -256,8 +262,8 @@ $arr = $products->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </div>
+<script src="../js/index.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
 
-<script src="../index.js"></script>
-<script src="../jquery-3.4.1.min.js"></script>
 </body>
 </html>

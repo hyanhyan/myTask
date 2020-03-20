@@ -1,10 +1,10 @@
 <?php
 include "../backend/connect.php";
-require_once "../front.php";
+require_once "../frontend/front.php";
 $stmt = $conn->prepare("SELECT * FROM `categories`");
 $stmt->execute();
 $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-require_once "../front.php";
+require_once "../frontend/front.php";
 ?>
 <html lang="en">
 <head>
@@ -19,6 +19,7 @@ require_once "../front.php";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../sidebar-01/css/style.css">
+
 
     <style>
         .btn {
@@ -36,6 +37,11 @@ require_once "../front.php";
     </style>
 </head>
 <body>
+<form>
+<label for="search">Search category name</label>
+<br>
+<input type="search" id="catSearch" name="search">
+</form>
 <div id="content" class="p-4 p-md-5">
 
 <div class="all">
@@ -45,12 +51,12 @@ require_once "../front.php";
                 <div class="row">
                     <div class="col-sm-8"><h2>Categories <b>Details</b></h2></div>
                     <div class="col-sm-4">
-                        <a href="../new_row.php" class="add-new"><i class="fa fa-plus"></i> Add New
+                        <a href="new_row.php" class="add-new"><i class="fa fa-plus"></i> Add New
                             category<a>
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered" id="table_data">
+            <table class="table table-bordered" id="table">
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -113,7 +119,7 @@ require_once "../front.php";
 
                         <td>
                             <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                            <a href="../edit.php?id=<?= $v['id'] ?>" class="edit" title="Edit"
+                            <a href="edit.php?id=<?= $v['id'] ?>" class="edit" title="Edit"
                                data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                             <a class="delete" title="Delete" data-toggle="tooltip"><i
                                         class="material-icons">&#xE872;</i></a>
@@ -129,7 +135,7 @@ require_once "../front.php";
 
                 echo "
                  <button class='btn'><a href='addinfo.php?page-no=1'>First</a></button>
-                 <button class='btn'><a href='addinfo.php?page-no=".($currentPage-1)."'>Previous</a></button>";
+                 <button class='btn'><a href='addinfo.php?page-no=" .($currentPage-1)."'>Previous</a></button>";
                 for($currentPage=1;$currentPage <= $count;$currentPage++) {
                     echo "
                        
@@ -150,7 +156,7 @@ require_once "../front.php";
 </div>
 </div>
 
-<script src="../index.js"></script>
-<script src="../jquery-3.4.1.min.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
 </body>
 </html>

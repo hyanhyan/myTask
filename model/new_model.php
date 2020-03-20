@@ -1,5 +1,5 @@
 <?php
-include "backend/connect.php";
+include "../backend/connect.php";
 
 $category = $conn->prepare("SELECT * FROM `categories`");
 $category->execute();
@@ -18,9 +18,8 @@ $arrCategory = $category->fetchAll(PDO::FETCH_ASSOC);
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="sidebar-01/css/style.css">
-        <script src="sidebar-01/js/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../sidebar-01/css/style.css">
     </head>
 <body>
 <form action="" method="post" id="add_details">
@@ -49,15 +48,14 @@ if (isset($_POST['submit'])){
                                                       VALUES ('$name', '$option', now(), now())");
         $insert_models->execute();
 
-        header("Location: frontend/addmodelinfo.php");
+        header("Location: addmodelinfo.php");
 
     }
 }
 ?>
-<script src="sidebar-01/js/popper.js"></script>
-<script src="sidebar-01/js/bootstrap.min.js"></script>
-<script src="sidebar-01/js/main.js"></script>
-<script src="sidebar-01/js/bootstrap.min.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
+
 
 </body>
 </html>

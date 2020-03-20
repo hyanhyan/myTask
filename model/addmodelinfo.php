@@ -1,6 +1,6 @@
 <?php
 include "../backend/connect.php";
-require_once "../front.php";
+require_once "../frontend/front.php";
 
 $models = $conn->query("SELECT `models`.*, `categories`.`name`  
                                         FROM `models`
@@ -23,6 +23,7 @@ $arr = $models->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../sidebar-01/css/style.css">
+
     <style>
 
         .btn {
@@ -40,6 +41,11 @@ $arr = $models->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
+<form">
+    <label for="gsearch">Search model name</label>
+<br>
+    <input type="search" id="search" name="search">
+</form>
 <div id="content" class="p-4 p-md-5">
 
     <div class="all">
@@ -49,7 +55,7 @@ $arr = $models->fetchAll(PDO::FETCH_ASSOC);
                     <div class="row">
                         <div class="col-sm-8"><h2>Model <b>Details</b></h2></div>
                         <div class="col-sm-4">
-                            <a href="../new_model.php" class="add-new"><i class="fa fa-plus"></i> Add New
+                            <a href="new_model.php" class="add-new"><i class="fa fa-plus"></i> Add New
                                 model<a>
                         </div>
                     </div>
@@ -120,7 +126,7 @@ LIMIT $startFrom,$offset");
 
 
                             <td>
-                                <a href="../editModel.php?id=<?= $v['id'] ?>&category_id=<?=$v['category_id']?>" class="edit" title="Edit"
+                                <a href="editModel.php?id=<?= $v['id'] ?>&category_id=<?=$v['category_id']?>" class="edit" title="Edit"
                                    data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a style="color:#E34724" class="del" title="Delete" data-toggle="tooltip"><i
                                             class="material-icons">&#xE872;</i></a>
@@ -141,17 +147,14 @@ LIMIT $startFrom,$offset");
 
                 echo "
                 <button class='btn'><a href='addmodelinfo.php?page=1'>First</a></button>
-                <button class='btn'><a href='addmodelinfo.php?page=".($currentPage-1)."'>Previous</a></button>";
+                <button class='btn'><a href='addmodelinfo.php?page=" .($currentPage-1)."'>Previous</a></button>";
                 for($currentPage=1;$currentPage <= $count;$currentPage++) {
                     echo "
-                       
 <button class='btn'><a href='addmodelinfo.php?page=$currentPage'>$currentPage</a></button>";
-                }
-                echo "<button class='btn'><a href='addmodelinfo.php?page=".($currentPage+1)."'>Next</a></button>
+                    }
+                    echo "<button class='btn'><a href='addmodelinfo.php?page=".($currentPage+1)."'>Next</a></button>
 <button class='btn'><a href='addmodelinfo.php?page=$count'>Last</a></button>";
-
-                    ?>
-
+?>
                     </li>
 
                 </ul>
@@ -160,7 +163,7 @@ LIMIT $startFrom,$offset");
     </div>
 </div>
 
-<script src="../index.js"></script>
-<script src="../jquery-3.4.1.min.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
 </body>
 </html>
